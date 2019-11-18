@@ -19,7 +19,7 @@ pipeline {
     stage('Deliver') {
       agent any
       steps {
-        sh './jenkins/scripts/deliver.sh'
+        sh 'java -jar target/${NAME}-${VERSION}.jar'
       }
     }
 
