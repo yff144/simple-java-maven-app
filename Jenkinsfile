@@ -18,6 +18,7 @@ pipeline {
     }
 
     stage('Deliver') {
+      agent any
       steps {
         sh './jenkins/scripts/deliver.sh'
         input 'deliver done'
