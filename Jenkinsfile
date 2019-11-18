@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       agent any
       steps {
+        git(url: 'https://github.com/yff144/simple-java-maven-app', branch: 'master')
         sh 'mvn -B -DskipTests clean package'
       }
     }
