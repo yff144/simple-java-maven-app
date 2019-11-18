@@ -19,7 +19,7 @@ pipeline {
     stage('Deliver') {
       agent any
       steps {
-        sh 'java -jar target/${NAME}-${VERSION}.jar'
+        sh 'java -jar target/my-app-1.0-SNAPSHOT.jar'
       }
     }
 
