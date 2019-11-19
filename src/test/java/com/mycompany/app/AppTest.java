@@ -20,6 +20,7 @@ public class AppTest
         System.setOut(new PrintStream(outContent));
     }
 
+
     @Test
     public void testAppConstructor() {
         try {
