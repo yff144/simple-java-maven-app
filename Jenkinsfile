@@ -2,10 +2,27 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      agent any
-      steps {
-        git 'https://github.com/jenkins-docs/simple-java-maven-app.git'
-        sh 'mvn -B -DskipTests clean package'
+      parallel {
+        stage('Build') {
+          agent any
+          steps {
+            git 'https://github.com/jenkins-docs/simple-java-maven-app.git'
+            sh 'mvn -B -DskipTests clean package'
+          }
+        }
+
+        stage('git') {
+          steps {
+            git(url: 'a', branch: 'a')
+          }
+        }
+
+        stage('git2') {
+          steps {
+            git(url: 'b', branch: 'b')
+          }
+        }
+
       }
     }
 
